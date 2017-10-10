@@ -14,7 +14,7 @@ public class Ball extends JComponent {
 	public Ball(int p_x, int p_y, int p_radius) {
 		x 		= p_x;
 		y 		= p_y;
-		radius	= p_radius;
+		radius		= p_radius;
 		updateDeplacement();
 	}
 	
@@ -47,7 +47,7 @@ public class Ball extends JComponent {
 	public void paint(Graphics g) {
 		super.paint(g);
 		g.setColor(color);
-	    g.fillOval(x,y,radius,radius);
+	   	g.fillOval(x,y,radius,radius);
 	}
 	
 	public void move() {
