@@ -9,9 +9,9 @@ import javax.swing.border.*;
 public class MainUI extends JFrame {
 	
 	// JPanels
-	private JPanel content 				= new JPanel();
+	private JPanel content 			= new JPanel();
 	private JPanel bottomConteneur 		= new JPanel();
-	private JPanel topConteneur			= new JPanel();
+	private JPanel topConteneur		= new JPanel();
 	public BallsContainer ballArea		= new BallsContainer();
 	
 	/*
@@ -25,9 +25,9 @@ public class MainUI extends JFrame {
 	 * Bottom Container Buttons
 	 */
 	public JButton startStopButton 	= new JButton("START");
-	public JButton plusButton 			= new JButton("+");
+	public JButton plusButton 		= new JButton("+");
 	public JButton minusButton 		= new JButton("-");
-	private JButton closeButton			= new JButton("CLOSE");
+	private JButton closeButton		= new JButton("CLOSE");
 	public JButton resetButton 		= new JButton("RESET");
 	
 	public String START = "START";
@@ -103,9 +103,6 @@ public class MainUI extends JFrame {
 		plusButton.setFont(buttonFont);
 		closeButton.setFont(buttonFont);
 		resetButton.setFont(buttonFont);
-		
-		// Disabling minus button by default
-		//minusButton.setEnabled(false);
 		
 		// Button part set position
 		bottomConteneur.add(plusButton);
