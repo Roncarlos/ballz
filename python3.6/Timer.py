@@ -2,6 +2,11 @@ from threading import Thread
 import time
 
 class Timer(Thread):
+    """
+    Timer Class
+    Create a timer. Takes 1 construct argument
+    argument : timerText[Tkinter:Label]
+    """
     def __init__(self, timerText):
         Thread.__init__(self)
         self.hours      = 0
@@ -12,18 +17,31 @@ class Timer(Thread):
         self.daemon     = True
 
     def startTimer(self):
+        """
+        Start the timer
+        """
         self.running = True
 
     def stopTimer(self):
+        """
+        Pause the timer
+        """
         self.running = False
 
     def resetTimer(self):
+        """
+        Reset the timer
+        """
         self.hours      = 0
         self.minutes    = 0
         self.seconds    = 0
         self.timerText.config(text=self.getFormattedText())
 
     def getFormattedText(self):
+        """
+        Return text timer display
+        format "h:m:s"
+        """
         h = "00"
         m = "00"
         s = "00"
@@ -46,6 +64,7 @@ class Timer(Thread):
 
     def run(self):
         while(True):
+            # Timer 1 sec for increment
             time.sleep(1)
             if(self.running):
                 self.seconds += 1
