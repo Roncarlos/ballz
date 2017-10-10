@@ -7,8 +7,14 @@ from Timer import *
 
 
 class MainUI(Frame):
+    """
+    MainUI class
+    Create the frame with all buttons and areas
+    And launch threads (game and timer)
+    """
 
     def __init__(self):
+        # Tk init
         self.root = Tk()
         self.w, self.h = self.root.winfo_screenwidth(), self.root.winfo_screenheight()
         self.root.overrideredirect(1)
@@ -19,11 +25,17 @@ class MainUI(Frame):
         # Titre
         self.root.title("34003611 - Python Ball'z")
 
-
+        # init UI and threads
         self.initUI()
+
+        # Start Tkinter thread
         self.root.mainloop();
 
     def initUI(self):
+        """
+        Create all the user interface
+        And launch the game and timer threads
+        """
         # font
         buttonFont      = font.Font(family="Helvetica", weight="bold")
 
@@ -67,28 +79,36 @@ class MainUI(Frame):
         self.timer                          = Label(self.topContainer, text="00:00:00", height=int(self.h * .005))
         self.timer.pack(side="right", padx=int(self.w*.15))
 
-        #self.resetButton.config(command=self.root.quit)
-
+        # Game Object
         self.game = BallGame(self.ballsArea, self.score)
 
+        # Timer Object
         self.timerThread = Timer(self.timer)
 
+        # Bind commands to buttons
         self.plusButton.config(command=self.game.addOneBall)
         self.minusButton.config(command=self.game.deleteOneBall)
         self.startStopButton.config(command=self.startStopGame)
         self.resetButton.config(command=self.resetGame)
 
 
-
+        # Start threads
         self.game.start()
         self.timerThread.start()
 
 
     def resetGame(self):
+        """
+        Reset Game and Timer
+        """
         self.game.resetGame()
         self.timerThread.resetTimer()
 
     def startStopGame(self):
+        """
+        Start or Pause the game
+        update startStopButton text
+        """
         if(self.game.running):
             self.game.stopGame()
             self.startStopButton.config(text="START")
