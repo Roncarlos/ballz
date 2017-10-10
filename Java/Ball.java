@@ -43,12 +43,6 @@ public class Ball extends JComponent {
 		d_x = (int) (speed * Math.cos(direction));
 		d_y = (int) (speed * Math.sin(direction));
 	}
-
-	/*
-	public void draw(Graphics g) {
-	    g.setColor(color);
-	    g.fillOval(x,y,radius,radius);
-	}*/
 	
 	public void paint(Graphics g) {
 		super.paint(g);
@@ -57,8 +51,6 @@ public class Ball extends JComponent {
 	}
 	
 	public void move() {
-		//g.setColor(new Color(240,240,230));
-		//g.fillOval(x, y, radius, radius);
 		x += d_x;
 		y += d_y;
 	}
