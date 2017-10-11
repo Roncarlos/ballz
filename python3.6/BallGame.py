@@ -84,9 +84,9 @@ class BallGame(Thread):
                 self.balls.append(b)
 
             if(self.running):
+                self.ballsCollision()
                 self.drawBalls()
                 self.moveBalls()
-                self.ballsCollision()
             time.sleep(0.015)
 
     def ballsCollision(self):
